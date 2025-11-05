@@ -1,12 +1,11 @@
-import cors from 'cors';
-app.use(cors({ origin: '*', methods: ['GET','POST'], allowedHeaders: ['Content-Type'] }));
 import 'dotenv/config';
 import express from 'express';
+import cors from 'cors';
 import { createClient } from '@supabase/supabase-js';
 
 const app = express();
+app.use(cors({ origin: '*', methods: ['GET','POST'], allowedHeaders: ['Content-Type'] }));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 const supabase = createClient(
   process.env.SUPABASE_URL,
